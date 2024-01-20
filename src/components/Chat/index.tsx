@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { IUser } from "../../type";
 import { get } from "../../services";
+import { userChannels } from "../../services/pusher";
 
 interface Props {
   user: IUser;
@@ -13,6 +14,10 @@ export default function Chat({ user }: Props) {
     const response = await get<IUser[]>({ url: "/users" });
     setUsers(response.data);
   };
+
+  userChannels.bind("store-user", async function () {
+    await fetchUsers();
+  });
 
   useEffect(() => {
     fetchUsers();

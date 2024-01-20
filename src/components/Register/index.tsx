@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { post } from "../../services";
+import { IUser } from "../../type";
+
 const inputs = [
   {
     id: 1,
@@ -27,7 +29,11 @@ const inputs = [
   },
 ];
 
-export default function Register() {
+interface Props {
+  setUser: React.Dispatch<React.SetStateAction<IUser>>;
+}
+
+export default function Register({ setUser }: Props) {
   const [form, setForm] = useState({
     name: "",
     lastname: "",
@@ -49,6 +55,7 @@ export default function Register() {
       body: form,
     });
     localStorage.setItem("user", JSON.stringify(response.data));
+    setUser(response.data as IUser);
   };
 
   return (

@@ -12,6 +12,6 @@ export default function App() {
   }, []);
 
   return (
-    <div >{!user ? <Register /> : <Chat user={user} />}</div>
+    <div>{!user ? <Register setUser={setUser} /> : <Chat user={user} />}</div>
   );
 }
