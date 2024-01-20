@@ -9,7 +9,7 @@ interface IPost<T> {
 
 const BASE_URL = "http://localhost:3000/api/v1";
 
-export async function get({ url }: IGet) {
+export async function get<T>({ url }: IGet): Promise<{ data: T }> {
   const res = await fetch(`${BASE_URL}${url}`);
   const { data } = await res.json();
 
