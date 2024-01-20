@@ -30,7 +30,7 @@ const inputs = [
 ];
 
 interface Props {
-  setUser: React.Dispatch<React.SetStateAction<IUser>>;
+  setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
 }
 
 export default function Register({ setUser }: Props) {
