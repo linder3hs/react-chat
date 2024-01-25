@@ -7,3 +7,10 @@ export interface IUser {
   password: string;
   updatedAt: string;
 }
+
+export interface IMessage {
+  id: string;
+  text: string;
+  transmitterUserId: string;
+  receiverUserId: string;
+}

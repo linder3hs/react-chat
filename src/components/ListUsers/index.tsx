@@ -12,6 +12,7 @@ export default function ListUsers({ users, handleCurrentReciever }: Props) {
         <div className="flex flex-col gap-5">
           {users.map((user) => (
             <div
+              key={user.id}
               className="card bg-gray-900 p-3 shadow-xl cursor-pointer"
               onClick={() => handleCurrentReciever(user)}
             >

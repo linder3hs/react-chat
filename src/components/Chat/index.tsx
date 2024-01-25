@@ -37,7 +37,7 @@ export default function Chat({ user }: Props) {
           {!currentReceiver ? (
             <ChatEmpty />
           ) : (
-            <ChatWindow currentReceiver={currentReceiver} />
+            <ChatWindow currentReceiver={currentReceiver} user={user} />
           )}
         </div>
       </div>
